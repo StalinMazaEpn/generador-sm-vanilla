@@ -7,8 +7,6 @@
     <meta name="description" content="El mejor generador para obtener números aleatorios con la opción de excluir valores.
     De Ecuador para el mundo.">
     <meta name="keywords" content="generador online, stalin maza, generador sm, generador tech">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css">
     <!-- Fuente del Texto -->
@@ -110,37 +108,45 @@ De Ecuador para el mundo.">
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="minimo">
-                                Minimo
+                                Minimo <span class="label-required">*</span>
                             </label>
                             <input
+                                type="number"
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                value="1" id="minimo" required type="number" placeholder="Valor Minimo">
+                                value="1" id="minimo" min="1" max="999998" 
+                                title="Valor Minimo" required 
+                                onkeypress="preventNegativesValues(event)"
+                                >
                         </div>
                         <div class="w-full md:w-1/3 px-3">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="maximo">
-                                Máximo
+                                Máximo <span class="label-required">*</span>
                             </label>
                             <input
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                                value="100" id="maximo" required type="number" placeholder="Valor Máximo">
+                                value="100" id="maximo" min="1" max="999999"
+                                onkeypress="preventNegativesValues(event)"
+                                required type="number" title="Valor Máximo">
                         </div>
                         <div class="w-full md:w-1/3 px-3">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="cantidad">
-                                Cantidad de Números
+                                Cantidad <span class="label-required">*</span>
                             </label>
                             <input
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                                id="cantidad" required value="1" type="number" placeholder="Cantidad">
+                                id="cantidad" required value="1" min="1"
+                                onkeypress="preventNegativesValues(event)"
+                                max="100" title="Cantidad" type="number">
                         </div>
                     </div>
 
                     <div class="mb-6">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="cantidad">
-                            Exclusión
+                            Valores de Exclusión
                         </label>
                         <textarea class="resize w-full border rounded focus:outline-none focus:shadow-outline textarea-app"
                             name="exclusion" id="exclusion"
-                            placeholder="Valores separados por coma que seran excluídos"></textarea>
+                            title="Valores separados por coma que seran excluídos al momento de generar los resultados"></textarea>
                     </div>
 
                     <div class="flex items-center justify-between">
@@ -153,18 +159,16 @@ De Ecuador para el mundo.">
 
                     <div class="py-2 px-4 text-center">
                         <h3 class="font-bold ">Resultado</h3>
-                        <p id="resultado"></p>
+                        <div id="resultado" class="resultado-app" title="Resultado de la generación">
+                            <span>...</span>
+                        </div>
                     </div>
 
                 </form>
-                <p class="text-center text-gray-500 text-xs">
-                    &copy;2020 Stalin Maza
-                </p>
-                <!-- </div> -->
             </div>
 
             <!--Footer-->
-            <div class="w-full pt-16 pb-6 text-sm text-center md:text-left fade-in">
+            <div class="w-full pt-16 pb-6 text-md text-center md:text-center fade-in">
                 <a class="text-gray-500 no-underline hover:no-underline" href="#">&copy; GeneradorSM 2020</a>
             </div>
         </div>
@@ -173,6 +177,10 @@ De Ecuador para el mundo.">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   -->
 </body>
+<script>
+document.cookie = 'same-site-cookie=foo; SameSite=Lax'; 
+document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
+</script>
 <script src="main.js"></script>
 
 </html>

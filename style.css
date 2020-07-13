@@ -36,5 +36,47 @@
          }
 
          .textarea-app::placeholder{
-            padding: 8px;
+            padding: 5px;
          }
+
+         .resultado-app{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+         }
+
+         .resultado-app > *{
+            margin: 5px;
+            word-break: break-all;
+         }
+         .label-required{
+            color: #e53e3e;
+         }
+
+         /*Animacion Loading*/
+
+         .lds-dual-ring {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+          }
+          .lds-dual-ring:after {
+            content: " ";
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 5px solid #cef;
+            border-color: #cef transparent #cef transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+          }
+          @keyframes lds-dual-ring {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+          
